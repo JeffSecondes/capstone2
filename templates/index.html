@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Bank Marketing Campaign</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<!--
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+-->
+
+</head>
+
+    <body bgcolor="gray">
+       
+          <center><h1>Model to Predict if a credit card transaction is Fraud or not</h1>
+    <!-- Main Input For Receiving Query to our ML -->
+            <form action="{{ url_for('predict_datapoint')}}" method="post">
+              <center>
+<!--
+              <input type="text" name="Year" placeholder="Year" required="required" /><br>
+              <input type="text" name="balance" placeholder="AverYear Yearly Balance" required="required" /><br>
+          
+-->  <!--#Year, Month, Day, Time, Amount, MerchantCity, MerchantState, Zip, MCC-->
+
+<table height="100%" width="890" border="1" cellspacing="1" cellpadding="2">
+<tr border="1"> 
+  <td border="1">
+              <label for="Year"><b>Year:</label><br>
+              <input type="number" id="Year" name="Year" placeholder='Input year' required="required"><br>
+              <!-- <font size='0.2' align="right" color="gray"><center> </td> </font> -->
+              <tr>
+ 
+  <tr border="1" width="1000"> 
+    <td border="1" width="1000">
+              <label for="Month"><b>Month:</label><br>
+              <input type="text" id="Month" name="Month" placeholder='Month' required="required"><br></td></tr>
+
+<tr border="1" width="1000">
+  <td>
+              <label for="Day"><b>Day:</label><br>
+              <input type="number" min="0" max="31" id="Day" name="Day" placeholder='Days' required="required"><br>
+      
+              <label for="Time"><b> Time:</b></label><br>
+              <input type="text" id="Time" name="Time" placeholder='# of contracts that have passed since the client was last contacted e.g. 2' required="required"><br> </td></tr></table>
+
+
+ <table height="100% "width="890" border="1" cellspacing="1" cellpadding="2">
+      <tr><td><br>
+              <label for="Amount"><b>Amount:</label>
+              <input type="text" id="Amount" name="Amount" placeholder='Input the Amount'required="required"><br><br>
+         
+
+          
+              <label for="MerchantCity">Merchant City:</label>
+              <input type="text" id="MerchantCity" name="MerchantCity" placeholder='Input Merchant City'required="required"><br>
+              <br>
+  
+              <label for="MerchantState">Merchant State:</label>
+              <input type="text" id="MerchantState" name="MerchantState" placeholder='Input MerchantState'><br>
+           
+            <br>
+              <label for="Zip">Zip</label>
+              <input type="text" id="Zip" name="Zip" placeholder='Input Zip'><br>
+
+
+              
+              <!-- <select required id="housing" name="housing" required="required">
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+              </select> -->
+              <br>
+
+              <label for="MCC">MCC:</label>
+              <input type="text" id="MCC" name="MCC" placeholder='Input MCC'required="required"><br>
+              <br><br>
+
+
+
+              <!-- <label for="contact">Contact communication type:</label><br>
+              <select required id="contact" name="contact" required="required">
+                <option value="cellular">Cellular</option>
+                <option value="telephone">Telephone</option>
+                <option value="unknown">Unknown</option>
+              </select>
+              <br><br>
+
+              <label for="Month">Last contact Month:</label><br>
+              <select required id="Month" name="Month" required="required">
+                <option value="jan">Jan</option>
+                <option value="feb">Feb</option>
+                <option value="mar">Mar</option>
+                <option value="apr">Apr</option>
+                <option value="may">May</option>
+                <option value="jun">Jun</option>
+                <option value="jul">Jul</option>
+                <option value="aug">Aug</option>
+                <option value="sep">Sep</option>
+                <option value="oct">Oct</option>
+                <option value="nov">Nov</option>
+                <option value="dec">Dec</option>                
+              </select>
+              <br><br>
+
+              <label for="poutcome">Outcome of the Time marketing campaign:</label><br>
+              <select required id="poutcome" name="poutcome" required="required">
+                <option value="success">Success</option>
+                <option value="failure">Failure</option>
+                <option value="other">Other</option>
+                <option value="unknown">Unknown</option>
+              </select>
+              <br><br> -->
+              
+                            <!--
+              <th width="169" scope="col">Year</th>
+              <th width="165" scope="col"><select name="Year" required id="Year" tabindex="2" placeholder="Days that passed by after the client was last contacted from a Time campaign" >
+                <option value="0"></option>
+                <option value="9">9</option>
+                <option value="11">10</option>
+              </select></th>
+-->
+              <br>
+<!--
+              Year
+              balance
+              pDays
+              Time
+              job_retired_student
+
+              MerchantCity_single
+
+              MerchantState_primary_secondary
+
+              housing_yes
+              MCC_yes
+              contact_cellular_telephone
+              Month_feb_mar_apr_sep_oct_dec
+              poutcome_success
+-->
+            <!--
+               <input type="text" name="Temperature" placeholder="Temperature" required="required" /><br>
+               <input type="text" name="RH" placeholder="RH" required="required" /><br>
+               <input type="text" name="Ws" placeholder="Ws" required="required" /><br>
+               <input type="text" name="Rain" placeholder="Rain" required="required" /><br>
+               <input type="text" name="FFMC" placeholder="FFMC" required="required" /><br> 
+               <input type="text" name="DMC" placeholder="DMC" required="required" /><br>
+               <input type="text" name="ISI" placeholder="ISI" required="required" /><br>
+               <input type="text" name="Classes" placeholder="Classes" required="required" /><br>
+               <input type="text" name="Region" placeholder="Region" required="required" /><br>
+              -->
+    
+               <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+            </form>
+          </tr></div></body></html></table>            <!--
+        <h2><br<br>
+         </h2></div>
+         The result is {{result}}
+        </h2>
+      -->
+      <h2>Outcome: {{result}} .</h2>
+       <body>
+    </html>
